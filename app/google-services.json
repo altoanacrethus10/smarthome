@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "224109396655",
+    "project_id": "smarthome-4a4f4",
+    "storage_bucket": "smarthome-4a4f4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:224109396655:android:d95098f63fc249aab9ca5a",
+        "android_client_info": {
+          "package_name": "com.example.smarthome"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-HoxqY--KBpWzqqbeFoY4yOSCMbh3RY0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

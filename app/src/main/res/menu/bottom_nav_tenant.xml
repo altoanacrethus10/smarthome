@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_tenant_home"
+        android:icon="@drawable/ic_home"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/nav_browse_houses"
+        android:icon="@drawable/ic_search"
+        android:title="Browse" />
+
+    <item
+        android:id="@+id/nav_tenant_saved"
+        android:icon="@drawable/ic_favorite_border"
+        android:title="Saved" />
+
+    <item
+        android:id="@+id/nav_tenant_profile"
+        android:icon="@drawable/ic_user"
+        android:title="Profile" />
+
+</menu>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/spacing_m"
+    app:cardCornerRadius="@dimen/radius_m"
+    app:cardElevation="@dimen/elevation_s">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_l">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_booking_tenant"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_m"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_booking_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_status_warning"
+                android:paddingStart="@dimen/spacing_m"
+                android:paddingTop="@dimen/spacing_xs"
+                android:paddingEnd="@dimen/spacing_m"
+                android:paddingBottom="@dimen/spacing_xs"
+                android:textColor="@color/warning"
+                android:textSize="@dimen/text_xs"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_booking_house"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_s"
+            android:textColor="@color/gray_dark"
+            android:textSize="@dimen/text_s" />
+
+        <TextView
+            android:id="@+id/tv_booking_meta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xs"
+            android:textColor="@color/gray_medium"
+            android:textSize="@dimen/text_s" />
+
+        <TextView
+            android:id="@+id/tv_booking_notes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_s"
+            android:background="@drawable/bg_status_info"
+            android:padding="@dimen/spacing_s"
+            android:textColor="@color/info"
+            android:textSize="@dimen/text_xs"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_m"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_accept_booking"
+                style="@style/Widget.SmartHome.Button.Outlined"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_height_s"
+                android:layout_marginEnd="@dimen/spacing_xs"
+                android:layout_weight="1"
+                android:text="Accept"
+                android:textAllCaps="false" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_reject_booking"
+                style="@style/Widget.SmartHome.Button.Outlined"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_height_s"
+                android:layout_marginStart="@dimen/spacing_xs"
+                android:layout_marginEnd="@dimen/spacing_xs"
+                android:layout_weight="1"
+                android:text="Reject"
+                android:textAllCaps="false"
+                android:textColor="@color/error"
+                app:strokeColor="@color/error" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_contact_tenant"
+                style="@style/Widget.SmartHome.Button.Outlined"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_height_s"
+                android:layout_marginStart="@dimen/spacing_xs"
+                android:layout_weight="1"
+                android:text="Contact"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_booking_details"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height_s"
+            android:layout_marginTop="@dimen/spacing_s"
+            android:text="View Booking Details"
+            android:textAllCaps="false"
+            style="@style/Widget.SmartHome.Button.Outlined" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

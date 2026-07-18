@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_dashboard"
+        android:icon="@drawable/ic_dashboard"
+        android:title="@string/nav_dashboard" />
+
+    <item
+        android:id="@+id/nav_my_listings"
+        android:icon="@drawable/ic_house"
+        android:title="@string/my_properties" />
+
+    <item
+        android:id="@+id/nav_bookings"
+        android:icon="@drawable/ic_check"
+        android:title="@string/booking_requests" />
+
+    <item
+        android:id="@+id/nav_account"
+        android:icon="@drawable/ic_user"
+        android:title="@string/account" />
+
+</menu>

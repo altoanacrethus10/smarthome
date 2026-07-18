@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_header_main"
+        android:enabled="false"
+        android:title="MAIN" />
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_dashboard"
+            android:icon="@drawable/ic_home"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_browse_houses"
+            android:icon="@drawable/ic_search"
+            android:title="Browse Houses" />
+        <item
+            android:id="@+id/nav_favorites"
+            android:icon="@drawable/ic_favorite_border"
+            android:title="Saved Properties" />
+        <item
+            android:id="@+id/nav_bookings"
+            android:icon="@drawable/ic_check"
+            android:title="My Bookings" />
+        <item
+            android:id="@+id/nav_account"
+            android:icon="@drawable/ic_user"
+            android:title="Profile" />
+    </group>
+
+    <item
+        android:id="@+id/nav_header_support"
+        android:enabled="false"
+        android:title="SUPPORT" />
+
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/nav_help"
+            android:icon="@drawable/ic_help"
+            android:title="Help &amp; FAQ" />
+        <item
+            android:id="@+id/nav_contact"
+            android:icon="@drawable/ic_contact"
+            android:title="Contact Support" />
+        <item
+            android:id="@+id/nav_complaints"
+            android:icon="@drawable/ic_complaint"
+            android:title="My Complaints" />
+        <item
+            android:id="@+id/nav_feedback"
+            android:icon="@drawable/ic_feedback"
+            android:title="Send Feedback" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/nav_settings" />
+    </group>
+
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_logout"
+            android:title="@string/logout" />
+    </group>
+
+</menu>

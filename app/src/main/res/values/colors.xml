@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Requested palette -->
+    <color name="primary">#2196F3</color> <!-- Blue -->
+
+    <!-- Needed for styles.xml/themes.xml -->
+    <color name="primary_dark">#1976D2</color> <!-- Darker primary variant -->
+
+
+    <!-- Success / Warning / Danger / Info -->
+    <color name="success">#4CAF50</color> <!-- Available -->
+    <color name="warning">#FF9800</color> <!-- Pending -->
+    <color name="error">#F44336</color> <!-- Logout, Cancelled -->
+    <color name="info">#2196F3</color> <!-- Rented, Booked -->
+
+    <!-- Useful variants -->
+    <color name="primary_light">#90CAF9</color>
+    <color name="primary_very_light">#E3F2FD</color>
+    <color name="success_light">#C8E6C9</color>
+    <color name="warning_light">#FFECB3</color>
+    <color name="error_light">#FFCDD2</color>
+    <color name="info_light">#BBDEFB</color>
+
+
+    <color name="secondary">#1E293B</color> <!-- Slate Blue/Dark -->
+    <color name="accent">#2563EB</color> <!-- Royal Blue -->
+    <color name="accent_light">#DBEAFE</color>
+
+    <!-- Neutrals -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#0F172A</color>
+    <color name="gray_dark">#475569</color>
+    <color name="gray_medium">#94A3B8</color>
+    <color name="gray_light">#E2E8F0</color>
+    <color name="gray_very_light">#F1F5F9</color>
+    <color name="background">#F8FAFC</color>
+    <color name="surface">#FFFFFF</color>
+
+    <!-- Semantic Status Colors (kept for compatibility; values aligned to requested palette) -->
+    <color name="accent_dark">#1E3A8A</color>
+    <color name="gradient_start">#2196F3</color>
+    <color name="gradient_end">#1E88E5</color>
+
+
+    <!-- UI Elements -->
+    <color name="divider">#F1F5F9</color>
+    <color name="surface_variant">#F8FAFC</color>
+    <color name="on_surface">#0F172A</color>
+    <color name="on_surface_variant">#64748B</color>
+    <color name="outline">#CBD5E1</color>
+    <color name="outline_variant">#E2E8F0</color>
+
+    <!-- Dark Mode Fallbacks -->
+    <color name="dark_background">#0F172A</color>
+    <color name="dark_surface">#1E293B</color>
+    <color name="dark_on_surface">#F1F5F9</color>
+    <color name="dark_surface_variant">#334155</color>
+    <color name="dark_on_surface_variant">#94A3B8</color>
+</resources>

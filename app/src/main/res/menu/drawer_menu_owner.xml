@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_header_main"
+        android:enabled="false"
+        android:title="MAIN" />
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_dashboard"
+            android:icon="@drawable/ic_dashboard"
+            android:title="@string/nav_dashboard" />
+        <item
+            android:id="@+id/nav_my_listings"
+            android:icon="@drawable/ic_house"
+            android:title="@string/my_properties" />
+        <item
+            android:id="@+id/nav_bookings"
+            android:icon="@drawable/ic_check"
+            android:title="Booking Requests" />
+        <item
+            android:id="@+id/nav_account"
+            android:icon="@drawable/ic_user"
+            android:title="Profile" />
+    </group>
+
+    <item
+        android:id="@+id/nav_header_support"
+        android:enabled="false"
+        android:title="SUPPORT" />
+
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/nav_payments"
+            android:icon="@drawable/ic_reminder"
+            android:title="Earnings &amp; Payments" />
+        <item
+            android:id="@+id/nav_help"
+            android:icon="@drawable/ic_help"
+            android:title="Help &amp; FAQ" />
+        <item
+            android:id="@+id/nav_contact"
+            android:icon="@drawable/ic_contact"
+            android:title="Contact Support" />
+        <item
+            android:id="@+id/nav_complaints"
+            android:icon="@drawable/ic_complaint"
+            android:title="Tenant Complaints" />
+        <item
+            android:id="@+id/nav_feedback"
+            android:icon="@drawable/ic_feedback"
+            android:title="Send Feedback" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/nav_settings" />
+    </group>
+
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_logout"
+            android:title="@string/logout" />
+    </group>
+
+</menu>

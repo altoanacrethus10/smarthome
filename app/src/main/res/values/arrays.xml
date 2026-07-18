@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="locations">
+        <item>All Locations</item>
+        <item>Kinondoni</item>
+        <item>Ilala</item>
+        <item>Temeke</item>
+        <item>Ubungo</item>
+        <item>Kigamboni</item>
+        <item>Kariakoo</item>
+        <item>Mbezi</item>
+        <item>Bunju</item>
+        <item>Tabata</item>
+        <item>Manzese</item>
+        <item>Sinza</item>
+        <item>Magomeni</item>
+        <item>Masaki</item>
+        <item>Mikocheni</item>
+        <item>Oyster Bay</item>
+    </string-array>
+
+    <string-array name="price_ranges">
+        <item>Any Price</item>
+        <item>0 - 100,000</item>
+        <item>100,000 - 200,000</item>
+        <item>200,000 - 300,000</item>
+        <item>300,000 - 400,000</item>
+        <item>400,000 - 500,000</item>
+        <item>500,000 - 750,000</item>
+        <item>750,000 - 1,000,000</item>
+        <item>1,000,000+</item>
+    </string-array>
+
+    <string-array name="bedroom_counts">
+        <item>Any</item>
+        <item>1 Bedroom</item>
+        <item>2 Bedrooms</item>
+        <item>3 Bedrooms</item>
+        <item>4 Bedrooms</item>
+        <item>5+ Bedrooms</item>
+    </string-array>
+</resources>

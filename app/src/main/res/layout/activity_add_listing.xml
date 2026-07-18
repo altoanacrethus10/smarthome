@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/android:windowBackground"
+    android:fitsSystemWindows="true">
+
+    <ScrollView
+        android:id="@+id/scroll_add_listing"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/btn_add_listing"
+        android:fillViewport="true"
+        android:clipToPadding="false"
+        android:paddingBottom="32dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_l">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginHorizontal="-16dp"
+            android:layout_marginTop="-16dp"
+            android:layout_marginBottom="@dimen/spacing_s"
+            app:navigationIcon="@drawable/ic_back"
+            app:titleTextColor="?attr/colorOnSurface" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Property"
+            android:textColor="?attr/colorOnSurface"
+            android:textSize="@dimen/text_xl"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xs"
+            android:text="List a property for tenants to discover, book, and contact you."
+            android:textColor="?attr/colorOnSurfaceVariant"
+            android:textSize="@dimen/text_s" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_l"
+            app:cardCornerRadius="@dimen/radius_m"
+            app:cardElevation="@dimen/elevation_s">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_m">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Photos"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textSize="@dimen/text_m"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="@dimen/spacing_s"
+                    android:background="?attr/colorSurfaceVariant">
+
+                    <ImageView
+                        android:id="@+id/iv_listing_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_house_placeholder"
+                        android:padding="@dimen/spacing_l" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_select_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="Select Image"
+                        android:textAllCaps="false"
+                        style="@style/Widget.SmartHome.Button.Outlined"
+                        app:backgroundTint="?attr/colorSurface"
+                        app:icon="@drawable/ic_image"
+                        app:iconPadding="12dp"
+                        app:iconGravity="textStart" />
+                </RelativeLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_m"
+            app:cardCornerRadius="@dimen/radius_m"
+            app:cardElevation="@dimen/elevation_s">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_m">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Property Details"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textSize="@dimen/text_m"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.SmartHome.TextInputLayout"
+                    android:hint="Title"
+                    android:layout_marginTop="@dimen/spacing_m">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_listing_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/input_height"
+                        android:inputType="textCapSentences"
+                        android:imeOptions="actionNext"
+                        android:textColor="?attr/colorOnSurface" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.SmartHome.TextInputLayout"
+                    android:hint="Description"
+                    android:layout_marginTop="@dimen/spacing_m">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_listing_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:inputType="textMultiLine"
+                        android:gravity="top"
+                        android:imeOptions="flagNoExtractUi"
+                        android:textColor="?attr/colorOnSurface" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.SmartHome.TextInputLayout"
+                    android:hint="Price (Tsh)"
+                    android:layout_marginTop="@dimen/spacing_m">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_listing_price"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/input_height"
+                        android:inputType="numberDecimal"
+                        android:imeOptions="actionNext"
+                        android:textColor="?attr/colorOnSurface" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_listing_type"
+                    style="@style/Widget.SmartHome.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Property Type"
+                    android:layout_marginTop="@dimen/spacing_m">
+
+                    <Spinner
+                        android:id="@+id/spinner_listing_type"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/input_height"
+                        android:backgroundTint="?attr/colorOnSurface" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_listing_location"
+                    style="@style/Widget.SmartHome.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Location"
+                    android:layout_marginTop="@dimen/spacing_m">
+
+                    <Spinner
+                        android:id="@+id/spinner_listing_location"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/input_height"
+                        android:backgroundTint="?attr/colorOnSurface" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/spacing_m">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="@dimen/spacing_s"
+                        style="@style/Widget.SmartHome.TextInputLayout"
+                        android:hint="Bedrooms">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_listing_bedrooms"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/input_height"
+                            android:inputType="number"
+                            android:imeOptions="actionNext"
+                            android:textColor="?attr/colorOnSurface" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/spacing_s"
+                        android:layout_marginEnd="@dimen/spacing_s"
+                        style="@style/Widget.SmartHome.TextInputLayout"
+                        android:hint="Bathrooms">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_listing_bathrooms"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/input_height"
+                            android:inputType="number"
+                            android:imeOptions="actionNext"
+                            android:textColor="?attr/colorOnSurface" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/spacing_s"
+                        style="@style/Widget.SmartHome.TextInputLayout"
+                        android:hint="Area (m²)">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_listing_area"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/input_height"
+                            android:inputType="numberDecimal"
+                            android:imeOptions="actionDone"
+                            android:textColor="?attr/colorOnSurface" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_m"
+            app:cardCornerRadius="@dimen/radius_m"
+            app:cardElevation="@dimen/elevation_s">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_m">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Features"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textSize="@dimen/text_m"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chip_group_listing_features"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_s"
+                    app:chipSpacing="@dimen/spacing_s"
+                    android:paddingTop="@dimen/spacing_s"
+                    app:singleLine="false" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_add_listing"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height_l"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/spacing_l"
+        android:layout_marginEnd="@dimen/spacing_l"
+        android:layout_marginBottom="@dimen/spacing_l"
+        android:text="Add Listing"
+        android:textAllCaps="false"
+        app:icon="@drawable/ic_add"
+        app:iconPadding="12dp"
+        app:iconGravity="textStart"
+        app:cornerRadius="@dimen/radius_m" />
+
+</RelativeLayout>
