@@ -14,6 +14,7 @@ import com.example.smarthome.constants.AppConstants;
 import com.example.smarthome.databinding.ActivityMainBinding;
 import com.example.smarthome.fragments.BrowseHousesFragment;
 import com.example.smarthome.fragments.DashboardFragment;
+import com.example.smarthome.fragments.MessagesFragment;
 import com.example.smarthome.fragments.MyBookingsFragment;
 import com.example.smarthome.fragments.MyListingsFragment;
 import com.example.smarthome.fragments.OwnerBookingsFragment;
@@ -88,6 +89,9 @@ public class MainActivity extends AppCompatActivity {
         } else if (id == R.id.nav_saved) {
             fragment = new SavedPropertiesFragment();
             title = "Saved Properties";
+        } else if (id == R.id.nav_messages) {
+            fragment = new MessagesFragment();
+            title = "Messages";
         } else if (id == R.id.nav_bookings) {
             fragment = isOwner ? new OwnerBookingsFragment() : new MyBookingsFragment();
             title = isOwner ? "Booking Requests" : "My Bookings";
@@ -106,7 +110,12 @@ public class MainActivity extends AppCompatActivity {
         String section = intent != null ? intent.getStringExtra(EXTRA_OPEN_SECTION) : null;
         int id;
         if ("browse".equals(section) || "listings".equals(section)) {
-            id = R.id.nav_houses;
+            if (sharedPrefManager.isOwner()) {
+                id = R.id.nav_houses;
+            } else {
+                startActivity(new Intent(this, BrowseHousesActivity.class));
+                id = R.id.nav_home;
+            }
         } else if ("bookings".equals(section)) {
             id = R.id.nav_bookings;
         } else if ("favorites".equals(section) || "saved".equals(section)) {
@@ -128,10 +137,20 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadFragment(Fragment fragment, String title) {
         getSupportFragmentManager().beginTransaction()
+                .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
                 .replace(R.id.content_frame, fragment)
                 .commit();
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(title);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (binding.bottomNav.getSelectedItemId() != R.id.nav_home) {
+            openTab(R.id.nav_home);
+        } else {
+            super.onBackPressed();
         }
     }
 

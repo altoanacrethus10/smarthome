@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.smarthome.R;
+import com.example.smarthome.activities.BrowseHousesActivity;
 import com.example.smarthome.activities.HouseDetailActivity;
 import com.example.smarthome.activities.MainActivity;
 import com.example.smarthome.adapters.SavedPropertiesAdapter;
@@ -76,7 +77,7 @@ public class SavedPropertiesFragment extends Fragment {
 
         MaterialButton btnBrowse = view.findViewById(R.id.btn_browse_properties);
         btnBrowse.setOnClickListener(v ->
-                ((MainActivity) requireActivity()).openTab(R.id.nav_houses));
+                startActivity(new Intent(getActivity(), BrowseHousesActivity.class)));
 
         swipeRefresh = view.findViewById(R.id.swipe_refresh);
         swipeRefresh.setColorSchemeResources(R.color.primary);

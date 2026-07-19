@@ -1,5 +1,46 @@
 # Progress
 
+**Phase 2 (navigation system & UX structure) — done this session:**
+
+- Both roles now have exactly 5 bottom-nav tabs matching the spec: Owner =
+  Dashboard/Properties/Messages/Bookings/Profile, Tenant =
+  Home/Saved/Messages/Bookings/Profile.
+- Built a real Messages feature from scratch (previously chat had no list
+  entry point — `ChatActivity` was only ever opened contextually from a
+  property's Contact button). New: `models/Conversation.java`,
+  `adapters/ConversationAdapter.java`, `fragments/MessagesFragment.java` +
+  `fragment_messages.xml`/`item_conversation.xml`. Real-time Firestore
+  listener on `chats` (`whereArrayContains("participants", uid)`, sorted
+  client-side by `lastTimestamp` to avoid a composite-index requirement),
+  resolves other-user name/avatar and property title via existing
+  `UserRepository`/`HouseRepository`, taps into the existing `ChatActivity`.
+- Tenant's old "Houses" tab was dropped (Home/`DashboardFragment` already
+  covers search/browse/recommendations per spec) and its full-featured
+  search+filter UI (`BrowseHousesFragment`) was preserved by hosting it in a
+  new standalone `BrowseHousesActivity`, reachable from "View All"/"Explore"
+  entry points instead of a tab.
+- Fixed 4 navigation calls that would've silently broken once tenant's
+  `nav_houses` tab was removed: `DashboardFragment`'s explore-search quick
+  action, `SavedPropertiesFragment`'s and `MyBookingsFragment`'s empty-state
+  "Browse Properties" buttons (the latter was previously wired in the layout
+  but never connected in Java — a pre-existing dead button), and
+  `MainActivity.openRequestedSection()`'s browse/listings deep-link handler.
+- Fixed the active-tab indicator: `activity_main.xml` had
+  `itemIconTint`/`itemTextColor` both hardcoded to the same solid color, so
+  selected and unselected tabs were visually identical. New
+  `res/color/bottom_nav_item_color.xml` selector fixes this.
+- Added a back-press handler: previously pressing back from any non-Home tab
+  exited the app immediately (fragments were swapped via `.replace()` with
+  no back stack). Now it returns to Home first, exits on a second press.
+- Added a fade transition between tab switches (was an instant cut).
+- Verified role-based navigation isolation: bottom nav menus differ per
+  role, `MainActivity.handleNavigation()` gates shared tab ids by
+  `isOwner()`, `HouseDetailActivity.applyRoleBasedVisibility()` already
+  hides owner-only actions from tenants. Found and spawned a separate
+  follow-up (not fixed here, out of navigation scope): any Owner can see
+  Edit/Manage buttons on *any* property's detail page, not just their own —
+  `HouseDetailActivity` checks role but not `house.getOwnerId()`.
+
 **What works**
 
 - Single-entry-point navigation restructure implemented across the codebase:

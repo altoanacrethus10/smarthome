@@ -40,8 +40,8 @@
         android:background="@drawable/bg_bottom_nav"
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
-        app:itemIconTint="@color/primary"
-        app:itemTextColor="@color/primary"
+        app:itemIconTint="@color/bottom_nav_item_color"
+        app:itemTextColor="@color/bottom_nav_item_color"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/bottom_nav_tenant" />
 

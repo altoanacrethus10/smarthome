@@ -74,4 +74,20 @@ public class DateFormatter {
         long diffInMillis = endDate.getTime() - startDate.getTime();
         return diffInMillis / (24 * 60 * 60 * 1000);
     }
+
+    /**
+     * Format a millis timestamp as a short relative time (e.g. "5m", "3h", "2d") for list previews.
+     */
+    public static String formatTimeAgo(long millis) {
+        long diff = System.currentTimeMillis() - millis;
+        if (diff < 0) diff = 0;
+        long minutes = diff / (60 * 1000);
+        long hours = diff / (60 * 60 * 1000);
+        long days = diff / (24 * 60 * 60 * 1000);
+        if (minutes < 1) return "Now";
+        if (minutes < 60) return minutes + "m";
+        if (hours < 24) return hours + "h";
+        if (days < 7) return days + "d";
+        return formatDate(new Date(millis));
+    }
 }

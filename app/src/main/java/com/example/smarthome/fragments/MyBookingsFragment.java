@@ -16,6 +16,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.smarthome.R;
 import com.example.smarthome.activities.BookingDetailActivity;
+import com.example.smarthome.activities.BrowseHousesActivity;
 import com.example.smarthome.adapters.MyBookingsTenantAdapter;
 import com.example.smarthome.models.Booking;
 import com.example.smarthome.repository.BookingRepository;
@@ -49,6 +50,11 @@ public class MyBookingsFragment extends Fragment {
         tabLayout = view.findViewById(R.id.tab_layout);
         rvBookings = view.findViewById(R.id.rv_bookings);
         emptyState = view.findViewById(R.id.empty_state);
+        View btnBrowseProperties = view.findViewById(R.id.btn_browse_properties);
+        if (btnBrowseProperties != null) {
+            btnBrowseProperties.setOnClickListener(v ->
+                    startActivity(new Intent(getActivity(), BrowseHousesActivity.class)));
+        }
         swipeRefresh = view.findViewById(R.id.swipe_refresh);
         swipeRefresh.setColorSchemeResources(R.color.primary);
         swipeRefresh.setOnRefreshListener(this::loadBookingsOnce);

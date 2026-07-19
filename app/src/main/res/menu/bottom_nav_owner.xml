@@ -12,6 +12,11 @@
         android:title="Properties" />
 
     <item
+        android:id="@+id/nav_messages"
+        android:icon="@drawable/ic_message"
+        android:title="Messages" />
+
+    <item
         android:id="@+id/nav_bookings"
         android:icon="@drawable/ic_check"
         android:title="Bookings" />

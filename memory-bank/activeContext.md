@@ -2,11 +2,12 @@
 
 **Current focus** (one short paragraph):
 
-Completed Phase 1 of the 10-phase SmartHome improvement plan (foundation &
-UI consistency) — see progress.md for the full list. Previous session's
-navigation restructure (hamburger drawer + bottom nav + kebab → single
-bottom-nav architecture) is the foundation this built on. User explicitly
-chose "polish within MDC1" over an M3 theme migration for this phase.
+Completed Phase 2 of the 10-phase SmartHome improvement plan (navigation
+system & UX structure) — see progress.md for the full list. Builds directly
+on Phase 1 (foundation/UI consistency) and the prior session's nav
+restructure. Headline change: bottom nav is now 5 tabs for both roles, with
+a real Messages tab backed by a brand-new conversation-list feature (chat
+previously had zero list/inbox entry point).
 
 **In progress**:
 

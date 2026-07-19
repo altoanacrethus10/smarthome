@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.smarthome.R;
+import com.example.smarthome.activities.BrowseHousesActivity;
 import com.example.smarthome.activities.HouseDetailActivity;
 import com.example.smarthome.activities.ReportActivity;
 import com.example.smarthome.adapters.HouseAdapter;
@@ -356,11 +357,8 @@ public class DashboardFragment extends Fragment {
             });
         }
         if (view.findViewById(R.id.btn_explore_search) != null) {
-            view.findViewById(R.id.btn_explore_search).setOnClickListener(v -> {
-                if (getActivity() instanceof MainActivity) {
-                    ((MainActivity) getActivity()).openTab(R.id.nav_houses);
-                }
-            });
+            view.findViewById(R.id.btn_explore_search).setOnClickListener(v ->
+                    startActivity(new Intent(getActivity(), BrowseHousesActivity.class)));
         }
         if (view.findViewById(R.id.btn_favorites) != null) {
             view.findViewById(R.id.btn_favorites).setOnClickListener(v -> {
