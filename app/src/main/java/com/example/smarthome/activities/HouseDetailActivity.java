@@ -180,8 +180,8 @@ public class HouseDetailActivity extends AppCompatActivity implements android.co
             startActivity(intent);
         });
         btnViewBookings.setOnClickListener(v -> {
-            Intent intent = new Intent(this, BookingsActivity.class);
-            intent.putExtra("house_id", house.getId());
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.putExtra(MainActivity.EXTRA_OPEN_SECTION, "bookings");
             startActivity(intent);
         });
         btnViewEarnings.setOnClickListener(v -> {

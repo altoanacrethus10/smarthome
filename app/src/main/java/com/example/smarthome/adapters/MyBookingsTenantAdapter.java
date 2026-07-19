@@ -13,7 +13,6 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.smarthome.R;
-import com.example.smarthome.activities.BookingsActivity;
 import com.example.smarthome.activities.BookingDetailActivity;
 import com.example.smarthome.models.Booking;
 import com.example.smarthome.repository.BookingRepository;

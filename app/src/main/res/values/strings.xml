@@ -156,26 +156,9 @@
     <string name="owner_cannot_save_favorites">House Owners cannot save houses as favorites.</string>
     <string name="owner_cannot_book_houses">House Owners cannot book houses.</string>
 
-    <!-- Navigation Drawer -->
-    <string name="nav_dashboard">Dashboard</string>
-    <string name="nav_browse_houses">Search Houses</string>
-    <string name="nav_properties">My Properties</string>
-    <string name="nav_favorites">Favorites</string>
-    <string name="nav_payments">Payments</string>
-
     <string name="nav_feedback">Feedback</string>
-    <string name="nav_complaints">Complaints</string>
     <string name="nav_help">Help</string>
     <string name="nav_contact">Contact</string>
-    <string name="nav_settings">Settings</string>
-
-    <!-- Tenant bottom nav -->
-    <string name="nav_tenant_home">Home</string>
-    <string name="nav_tenant_saved">Saved</string>
-    <string name="nav_tenant_bookings">Bookings</string>
-    <string name="nav_tenant_profile">Profile</string>
-
-    <string name="nav_share">Share App</string>
 
     <!-- User Types -->
     <string name="user_type_owner">House Owner</string>

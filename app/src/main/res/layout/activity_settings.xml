@@ -326,6 +326,12 @@
                     <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/divider" />
 
                     <include
+                        android:id="@+id/setting_complaints"
+                        layout="@layout/item_profile_menu" />
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/divider" />
+
+                    <include
                         android:id="@+id/setting_feedback"
                         layout="@layout/item_profile_menu" />
                 </LinearLayout>
@@ -396,58 +402,28 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Danger Section -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="20dp"
-                android:paddingTop="24dp"
-                android:paddingBottom="8dp"
-                android:text="DANGER ZONE"
-                android:textColor="@color/error"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
+            <!-- Log Out Section -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="24dp"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="0dp"
-                app:strokeColor="@color/error_light"
+                app:strokeColor="@color/divider"
                 app:strokeWidth="1dp">
 
-                <LinearLayout
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_logout"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btn_logout"
-                        style="@style/Widget.MaterialComponents.Button.TextButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Log Out"
-                        android:textAlignment="viewStart"
-                        android:textColor="@color/error"
-                        android:padding="16dp"
-                        app:icon="@drawable/ic_logout"
-                        app:iconTint="@color/error" />
-
-                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/error_light" />
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btn_delete_account"
-                        style="@style/Widget.MaterialComponents.Button.TextButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Delete Account"
-                        android:textAlignment="viewStart"
-                        android:textColor="@color/error"
-                        android:padding="16dp"
-                        app:icon="@drawable/ic_complaint"
-                        app:iconTint="@color/error" />
-                </LinearLayout>
+                    android:text="Log Out"
+                    android:textAlignment="viewStart"
+                    android:textColor="?attr/colorOnSurface"
+                    android:padding="16dp"
+                    app:icon="@drawable/ic_logout"
+                    app:iconTint="?attr/colorOnSurface" />
             </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>

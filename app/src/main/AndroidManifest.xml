@@ -125,24 +125,12 @@
             android:parentActivityName=".activities.MainActivity"
             android:windowSoftInputMode="adjustResize" />
 
-        <activity
-            android:name=".activities.SavedPropertiesActivity"
-            android:exported="false"
-            android:parentActivityName=".activities.MainActivity" />
-
-
         <!-- Settings & Profile -->
         <activity
             android:name=".activities.SettingsActivity"
             android:exported="false"
             android:parentActivityName=".activities.MainActivity" />
-        
-        <activity
-            android:name=".activities.AccountActivity"
-            android:exported="false"
-            android:parentActivityName=".activities.MainActivity"
-            android:windowSoftInputMode="adjustResize" />
-        
+
         <activity
             android:name=".activities.PrivacyPolicyActivity"
             android:exported="false"
@@ -185,11 +173,6 @@
             android:name=".activities.BookingSummaryActivity"
             android:exported="false"
             android:parentActivityName=".activities.HouseDetailActivity" />
-
-        <activity
-            android:name=".activities.BookingsActivity"
-            android:exported="false"
-            android:parentActivityName=".activities.MainActivity" />
 
         <activity
             android:name=".activities.CallActivity"

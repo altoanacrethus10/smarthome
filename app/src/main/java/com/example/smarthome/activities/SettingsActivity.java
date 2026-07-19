@@ -81,10 +81,13 @@ public class SettingsActivity extends AppCompatActivity {
         setupMenuItem(R.id.setting_help, R.drawable.ic_help, "Help Center", v -> 
             startActivity(new Intent(this, HelpActivity.class)));
         
-        setupMenuItem(R.id.setting_contact, R.drawable.ic_contact, "Contact Us", v -> 
+        setupMenuItem(R.id.setting_contact, R.drawable.ic_contact, "Contact Us", v ->
             startActivity(new Intent(this, ContactActivity.class)));
-        
-        setupMenuItem(R.id.setting_feedback, R.drawable.ic_feedback, "Send Feedback", v -> 
+
+        setupMenuItem(R.id.setting_complaints, R.drawable.ic_complaint, sharedPrefManager.isOwner() ? "Tenant Complaints" : "My Complaints", v ->
+            startActivity(new Intent(this, ComplaintsActivity.class)));
+
+        setupMenuItem(R.id.setting_feedback, R.drawable.ic_feedback, "Send Feedback", v ->
             startActivity(new Intent(this, UserFeedbackActivity.class)));
 
         // About
@@ -97,9 +100,7 @@ public class SettingsActivity extends AppCompatActivity {
         setupMenuItem(R.id.setting_about, R.drawable.ic_help, "About SmartHome", v -> 
             Toast.makeText(this, "SmartHome v1.0.0", Toast.LENGTH_SHORT).show());
 
-        // Danger Zone
         findViewById(R.id.btn_logout).setOnClickListener(v -> confirmLogout());
-        findViewById(R.id.btn_delete_account).setOnClickListener(v -> confirmDeleteAccount());
     }
 
     private void setupMenuItem(int id, int icon, String label, View.OnClickListener listener) {
@@ -188,15 +189,4 @@ public class SettingsActivity extends AppCompatActivity {
                 .show();
     }
 
-    private void confirmDeleteAccount() {
-        new MaterialAlertDialogBuilder(this)
-                .setTitle("Delete Account")
-                .setMessage("This action is permanent and cannot be undone. Are you sure?")
-                .setPositiveButton("Delete", (dialog, which) -> {
-                    // In a real app, re-authenticate first
-                    Toast.makeText(this, "Account deletion requested", Toast.LENGTH_LONG).show();
-                })
-                .setNegativeButton("Cancel", null)
-                .show();
-    }
 }

@@ -11,7 +11,6 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.button.MaterialButton;
 import com.example.smarthome.R;
-import com.example.smarthome.activities.MyBookingsActivity;
 import com.example.smarthome.models.Booking;
 import com.example.smarthome.repository.BookingRepository;
 import com.example.smarthome.utils.BluetoothUtils;
@@ -85,7 +84,8 @@ public class ReceiptActivity extends AppCompatActivity {
         loadReceiptData();
 
         btnViewBookings.setOnClickListener(v -> {
-            Intent intent = new Intent(ReceiptActivity.this, MyBookingsActivity.class);
+            Intent intent = new Intent(ReceiptActivity.this, MainActivity.class);
+            intent.putExtra(MainActivity.EXTRA_OPEN_SECTION, "bookings");
             startActivity(intent);
             finish();
         });

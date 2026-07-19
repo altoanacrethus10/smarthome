@@ -23,16 +23,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.smarthome.R;
-import com.example.smarthome.activities.AccountActivity;
-import com.example.smarthome.activities.BookingsActivity;
 import com.example.smarthome.activities.HouseDetailActivity;
 import com.example.smarthome.activities.ReportActivity;
 import com.example.smarthome.adapters.HouseAdapter;
 import com.example.smarthome.adapters.OwnerPropertyAdapter;
 import com.example.smarthome.activities.AddListingActivity;
 import com.example.smarthome.activities.HelpActivity;
-import com.example.smarthome.activities.MyBookingsActivity;
-import com.example.smarthome.activities.SavedPropertiesActivity;
 
 
 
@@ -141,7 +137,9 @@ public class DashboardFragment extends Fragment {
         if (btnNotification != null) {
             btnNotification.setOnClickListener(v -> {
                 // Owner notifications currently map to bookings screen.
-                startActivity(new Intent(getActivity(), BookingsActivity.class));
+                if (getActivity() instanceof MainActivity) {
+                    ((MainActivity) getActivity()).openTab(R.id.nav_bookings);
+                }
             });
         }
 
@@ -173,8 +171,11 @@ public class DashboardFragment extends Fragment {
 
         swipeRefresh.setOnRefreshListener(this::loadOwnerDashboardData);
         swipeRefresh.setColorSchemeResources(R.color.primary);
-        view.findViewById(R.id.btn_open_report).setOnClickListener(v ->
-                startActivity(new Intent(getActivity(), BookingsActivity.class)));
+        view.findViewById(R.id.btn_open_report).setOnClickListener(v -> {
+            if (getActivity() instanceof MainActivity) {
+                ((MainActivity) getActivity()).openTab(R.id.nav_bookings);
+            }
+        });
         view.findViewById(R.id.btn_add_house).setOnClickListener(v ->
                 startActivity(new Intent(getActivity(), AddListingActivity.class)));
         view.findViewById(R.id.btn_open_payments).setOnClickListener(v ->
@@ -183,7 +184,11 @@ public class DashboardFragment extends Fragment {
         // View all listings link
         View tvViewAll = view.findViewById(R.id.tv_view_all_properties);
         if (tvViewAll != null) {
-            tvViewAll.setOnClickListener(v -> startActivity(new Intent(getActivity(), MyListingsFragment.class)));
+            tvViewAll.setOnClickListener(v -> {
+                if (getActivity() instanceof MainActivity) {
+                    ((MainActivity) getActivity()).openTab(R.id.nav_houses);
+                }
+            });
         }
 
 
@@ -215,8 +220,11 @@ public class DashboardFragment extends Fragment {
         String tenantName = sharedPrefManager.getUserName();
         tvGreeting.setText("Welcome, " + (tenantName != null && !tenantName.trim().isEmpty() ? tenantName : "Tenant"));
         
-        view.findViewById(R.id.btn_profile).setOnClickListener(v -> 
-                startActivity(new Intent(getActivity(), AccountActivity.class)));
+        view.findViewById(R.id.btn_profile).setOnClickListener(v -> {
+            if (getActivity() instanceof MainActivity) {
+                ((MainActivity) getActivity()).openTab(R.id.nav_profile);
+            }
+        });
 
         updateLocationText();
         setupTenantAdapters();
@@ -334,23 +342,32 @@ public class DashboardFragment extends Fragment {
 
     private void setupQuickActions(View view) {
         if (view.findViewById(R.id.btn_profile) != null) {
-            view.findViewById(R.id.btn_profile).setOnClickListener(v ->
-                    startActivity(new Intent(getActivity(), AccountActivity.class)));
+            view.findViewById(R.id.btn_profile).setOnClickListener(v -> {
+                if (getActivity() instanceof MainActivity) {
+                    ((MainActivity) getActivity()).openTab(R.id.nav_profile);
+                }
+            });
         }
         if (view.findViewById(R.id.btn_my_bookings) != null) {
-            view.findViewById(R.id.btn_my_bookings).setOnClickListener(v ->
-                    startActivity(new Intent(getActivity(), MyBookingsActivity.class)));
+            view.findViewById(R.id.btn_my_bookings).setOnClickListener(v -> {
+                if (getActivity() instanceof MainActivity) {
+                    ((MainActivity) getActivity()).openTab(R.id.nav_bookings);
+                }
+            });
         }
         if (view.findViewById(R.id.btn_explore_search) != null) {
             view.findViewById(R.id.btn_explore_search).setOnClickListener(v -> {
                 if (getActivity() instanceof MainActivity) {
-                    ((MainActivity) getActivity()).handleNavigation(R.id.nav_browse_houses, false);
+                    ((MainActivity) getActivity()).openTab(R.id.nav_houses);
                 }
             });
         }
         if (view.findViewById(R.id.btn_favorites) != null) {
-            view.findViewById(R.id.btn_favorites).setOnClickListener(v ->
-                    startActivity(new Intent(getActivity(), SavedPropertiesActivity.class)));
+            view.findViewById(R.id.btn_favorites).setOnClickListener(v -> {
+                if (getActivity() instanceof MainActivity) {
+                    ((MainActivity) getActivity()).openTab(R.id.nav_saved);
+                }
+            });
         }
     }
 
