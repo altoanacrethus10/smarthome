@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+    <!-- Toolbar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/primary"
+        app:titleTextColor="@color/white"
+        app:title="@string/terms_conditions"
+        app:navigationIcon="@drawable/ic_back"
+        app:navigationIconTint="@color/white" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_l">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/radius_m"
+                app:cardElevation="@dimen/elevation_s">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_l">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Terms of Service"
+                        android:textSize="@dimen/text_xl"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:layout_marginBottom="@dimen/spacing_m" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Last Updated: June 2026"
+                        android:textSize="@dimen/text_s"
+                        android:textColor="@color/gray_medium"
+                        android:layout_marginBottom="@dimen/spacing_l" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="1. Acceptance of Terms"
+                        android:textSize="@dimen/text_m"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:layout_marginBottom="@dimen/spacing_xs" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="By creating an account or using SmartHome, you agree to be bound by these Terms of Service. If you do not agree, please do not use the application."
+                        android:textSize="@dimen/text_s"
+                        android:textColor="@color/gray_dark"
+                        android:layout_marginBottom="@dimen/spacing_m" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="2. Property Listings &amp; Bookings"
+                        android:textSize="@dimen/text_m"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:layout_marginBottom="@dimen/spacing_xs" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Owners are responsible for the accuracy of their property listings. Tenants are responsible for reviewing property details, dates, and pricing before submitting a booking request. SmartHome facilitates connections between owners and tenants but is not a party to any rental agreement."
+                        android:textSize="@dimen/text_s"
+                        android:textColor="@color/gray_dark"
+                        android:layout_marginBottom="@dimen/spacing_m" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="3. Payments"
+                        android:textSize="@dimen/text_m"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:layout_marginBottom="@dimen/spacing_xs" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="All payments made through the app are recorded against the associated booking. Users are responsible for verifying payment amounts and recipients before confirming a transaction."
+                        android:textSize="@dimen/text_s"
+                        android:textColor="@color/gray_dark"
+                        android:layout_marginBottom="@dimen/spacing_m" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="4. Conduct"
+                        android:textSize="@dimen/text_m"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:layout_marginBottom="@dimen/spacing_xs" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Users agree not to submit false listings, harass other users, or misuse the messaging and calling features. Violations may result in account suspension."
+                        android:textSize="@dimen/text_s"
+                        android:textColor="@color/gray_dark"
+                        android:layout_marginBottom="@dimen/spacing_m" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="5. Contact Us"
+                        android:textSize="@dimen/text_m"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:layout_marginBottom="@dimen/spacing_xs" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="If you have any questions about these Terms of Service, please contact us at:\n📧 support@smarthome.com\n📞 +255 700 000 000"
+                        android:textSize="@dimen/text_s"
+                        android:textColor="@color/gray_dark" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

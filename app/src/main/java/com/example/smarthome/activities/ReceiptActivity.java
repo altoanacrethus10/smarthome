@@ -1,8 +1,13 @@
 package com.example.smarthome.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.print.PrintAttributes;
+import android.print.PrintManager;
 import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -109,7 +114,7 @@ public class ReceiptActivity extends AppCompatActivity {
         btnPrintReceipt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ReceiptActivity.this, "Print feature coming soon!", Toast.LENGTH_SHORT).show();
+                printReceipt();
             }
         });
     }
@@ -149,6 +154,29 @@ public class ReceiptActivity extends AppCompatActivity {
         shareIntent.setType("text/plain");
         shareIntent.putExtra(Intent.EXTRA_TEXT, buildReceiptText());
         startActivity(Intent.createChooser(shareIntent, "Share Receipt"));
+    }
+
+    private void printReceipt() {
+        PrintManager printManager = (PrintManager) getSystemService(Context.PRINT_SERVICE);
+        WebView webView = new WebView(this);
+        webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                android.print.PrintDocumentAdapter adapter = webView.createPrintDocumentAdapter(
+                        "Receipt_" + tvReceiptNumber.getText().toString());
+                printManager.print(
+                        "SmartHome Receipt " + tvReceiptNumber.getText().toString(),
+                        adapter,
+                        new PrintAttributes.Builder().build());
+            }
+        });
+        webView.loadDataWithBaseURL(null, buildReceiptHtml(), "text/HTML", "UTF-8", null);
+    }
+
+    private String buildReceiptHtml() {
+        return "<html><body style=\"font-family:monospace;white-space:pre-wrap;font-size:14px;\">"
+                + buildReceiptText().replace("\n", "<br>")
+                + "</body></html>";
     }
 
     private String buildReceiptText() {

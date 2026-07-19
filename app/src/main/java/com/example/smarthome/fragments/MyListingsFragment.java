@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.smarthome.R;
 import com.example.smarthome.activities.AddListingActivity;
@@ -36,6 +37,7 @@ public class MyListingsFragment extends Fragment {
     private SharedPrefManager sharedPrefManager;
     private View emptyView;
     private FloatingActionButton fabAddListing;
+    private SwipeRefreshLayout swipeRefresh;
 
     @Nullable
     @Override
@@ -49,7 +51,10 @@ public class MyListingsFragment extends Fragment {
         rvMyListings = view.findViewById(R.id.rv_my_listings);
         emptyView = view.findViewById(R.id.ll_empty_listings);
         fabAddListing = view.findViewById(R.id.fab_add_listing);
-        
+        swipeRefresh = view.findViewById(R.id.swipe_refresh);
+        swipeRefresh.setColorSchemeResources(R.color.primary);
+        swipeRefresh.setOnRefreshListener(this::loadMyListings);
+
         setupRecyclerView();
         setupFab();
         loadMyListings();
@@ -113,11 +118,13 @@ public class MyListingsFragment extends Fragment {
                     if (emptyView != null) emptyView.setVisibility(View.GONE);
                     houseAdapter.notifyDataSetChanged();
                 }
+                if (swipeRefresh != null) swipeRefresh.setRefreshing(false);
             }
 
             @Override
             public void onError(String error) {
                 Toast.makeText(getContext(), "Error: " + error, Toast.LENGTH_SHORT).show();
+                if (swipeRefresh != null) swipeRefresh.setRefreshing(false);
             }
         });
     }

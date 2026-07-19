@@ -105,10 +105,6 @@
             android:windowSoftInputMode="adjustResize" />
         
         <activity
-            android:name=".activities.DashboardActivity"
-            android:exported="false" />
-
-        <activity
             android:name=".activities.ReportActivity"
             android:exported="false"
             android:parentActivityName=".activities.MainActivity" />
@@ -136,6 +132,11 @@
             android:exported="false"
             android:parentActivityName=".activities.MainActivity" />
 
+        <activity
+            android:name=".activities.TermsOfServiceActivity"
+            android:exported="false"
+            android:parentActivityName=".activities.MainActivity" />
+
         <!-- Feedback & Complaints -->
         <activity
             android:name=".activities.UserFeedbackActivity"
@@ -144,11 +145,6 @@
         
         <activity
             android:name=".activities.ComplaintsActivity"
-            android:exported="false"
-            android:parentActivityName=".activities.MainActivity" />
-
-        <activity
-            android:name=".activities.ComplainsActivity"
             android:exported="false"
             android:parentActivityName=".activities.MainActivity" />
 

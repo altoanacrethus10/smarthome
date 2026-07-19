@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.smarthome.R;
 import com.example.smarthome.activities.BookingDetailActivity;
@@ -28,6 +29,7 @@ public class MyBookingsFragment extends Fragment {
 
     private TabLayout tabLayout;
     private RecyclerView rvBookings;
+    private SwipeRefreshLayout swipeRefresh;
 
     private View emptyState;
 
@@ -47,6 +49,9 @@ public class MyBookingsFragment extends Fragment {
         tabLayout = view.findViewById(R.id.tab_layout);
         rvBookings = view.findViewById(R.id.rv_bookings);
         emptyState = view.findViewById(R.id.empty_state);
+        swipeRefresh = view.findViewById(R.id.swipe_refresh);
+        swipeRefresh.setColorSchemeResources(R.color.primary);
+        swipeRefresh.setOnRefreshListener(this::loadBookingsOnce);
 
         rvBookings.setLayoutManager(new LinearLayoutManager(requireContext()));
 
@@ -114,12 +119,14 @@ public class MyBookingsFragment extends Fragment {
                 allBookings.clear();
                 if (result != null) allBookings.addAll(result);
                 filterAndRender(tabLayout.getSelectedTabPosition());
+                if (swipeRefresh != null) swipeRefresh.setRefreshing(false);
             }
 
             @Override
             public void onError(String error) {
                 Toast.makeText(getContext(), "Error: " + error, Toast.LENGTH_LONG).show();
                 renderEmpty();
+                if (swipeRefresh != null) swipeRefresh.setRefreshing(false);
             }
         });
     }

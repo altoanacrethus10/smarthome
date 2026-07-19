@@ -157,13 +157,6 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        binding.bottomNav.getOrCreateBadge(R.id.nav_profile).setVisible(true);
-        binding.bottomNav.getOrCreateBadge(R.id.nav_profile).setNumber(2);
-    }
-
     private void ensureCommunicationPermissions() {
         String[] permissions = PermissionHelper.getAllPermissions();
         if (!PermissionHelper.hasPermissions(this, permissions)) {

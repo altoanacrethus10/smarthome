@@ -15,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.smarthome.R;
 import com.example.smarthome.activities.HouseDetailActivity;
@@ -32,6 +33,8 @@ public class BrowseHousesFragment extends Fragment {
     private ImageView ivSearch;
     private Spinner spinnerLocation, spinnerPrice, spinnerBedrooms;
     private RecyclerView rvHouses;
+    private View emptyState;
+    private SwipeRefreshLayout swipeRefresh;
     private HouseAdapter houseAdapter;
     private List<House> houseList;
     private List<House> filteredList;
@@ -52,6 +55,10 @@ public class BrowseHousesFragment extends Fragment {
         spinnerPrice = view.findViewById(R.id.spinner_price);
         spinnerBedrooms = view.findViewById(R.id.spinner_bedrooms);
         rvHouses = view.findViewById(R.id.rv_houses);
+        emptyState = view.findViewById(R.id.empty_state);
+        swipeRefresh = view.findViewById(R.id.swipe_refresh);
+        swipeRefresh.setColorSchemeResources(R.color.primary);
+        swipeRefresh.setOnRefreshListener(this::loadHouses);
 
         // Setup RecyclerView
         setupRecyclerView();
@@ -106,13 +113,24 @@ public class BrowseHousesFragment extends Fragment {
                     filteredList.addAll(houseList);
                     houseAdapter.notifyDataSetChanged();
                 }
+                updateEmptyState();
+                if (swipeRefresh != null) swipeRefresh.setRefreshing(false);
             }
 
             @Override
             public void onError(String error) {
                 android.widget.Toast.makeText(getContext(), "Failed to load houses: " + error, android.widget.Toast.LENGTH_SHORT).show();
+                updateEmptyState();
+                if (swipeRefresh != null) swipeRefresh.setRefreshing(false);
             }
         });
+    }
+
+    private void updateEmptyState() {
+        if (emptyState == null || rvHouses == null) return;
+        boolean empty = filteredList.isEmpty();
+        emptyState.setVisibility(empty ? View.VISIBLE : View.GONE);
+        rvHouses.setVisibility(empty ? View.GONE : View.VISIBLE);
     }
 
     private void performSearch() {
@@ -164,6 +182,7 @@ public class BrowseHousesFragment extends Fragment {
         }
 
         houseAdapter.notifyDataSetChanged();
+        updateEmptyState();
     }
 
     private String safeText(Object value) {

@@ -182,6 +182,7 @@ public class ChatActivity extends AppCompatActivity implements android.content.S
                 .addSnapshotListener((value, error) -> {
                     if (error != null) {
                         Log.e(TAG, "Listen failed", error);
+                        Toast.makeText(ChatActivity.this, "Connection lost. Reopen the chat to reconnect.", Toast.LENGTH_LONG).show();
                         return;
                     }
                     

@@ -21,6 +21,8 @@ import com.example.smarthome.activities.EditProfileActivity;
 import com.example.smarthome.activities.HelpActivity;
 import com.example.smarthome.activities.LoginActivity;
 import com.example.smarthome.activities.MainActivity;
+import com.example.smarthome.activities.NotificationsActivity;
+import com.example.smarthome.activities.ReportActivity;
 import com.example.smarthome.activities.SettingsActivity;
 import com.example.smarthome.database.remote.AuthenticationHelper;
 import com.example.smarthome.database.remote.FirebaseStorageHelper;
@@ -93,11 +95,11 @@ public class ProfileFragment extends Fragment {
 
         // Payment History
         setupMenuItem(view, R.id.menu_payment_history, R.drawable.ic_check, "Payment History", v ->
-                Toast.makeText(getContext(), "Payment History coming soon", Toast.LENGTH_SHORT).show());
+                startActivity(new Intent(getActivity(), ReportActivity.class)));
 
         // Notifications
         setupMenuItem(view, R.id.menu_notifications, R.drawable.ic_notifications, "Notifications", v ->
-                Toast.makeText(getContext(), "Notifications coming soon", Toast.LENGTH_SHORT).show());
+                startActivity(new Intent(getActivity(), NotificationsActivity.class)));
 
         // Settings
         setupMenuItem(view, R.id.menu_settings, R.drawable.ic_settings, "Settings", v ->

@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.smarthome.R;
 import com.example.smarthome.activities.HouseDetailActivity;
@@ -38,6 +39,7 @@ public class SavedPropertiesFragment extends Fragment {
     private SharedPrefManager sharedPrefManager;
 
     private SavedPropertiesAdapter adapter;
+    private SwipeRefreshLayout swipeRefresh;
     private final List<House> savedHouses = new ArrayList<>();
 
     private final Set<String> savedIds = new HashSet<>();
@@ -76,6 +78,10 @@ public class SavedPropertiesFragment extends Fragment {
         btnBrowse.setOnClickListener(v ->
                 ((MainActivity) requireActivity()).openTab(R.id.nav_houses));
 
+        swipeRefresh = view.findViewById(R.id.swipe_refresh);
+        swipeRefresh.setColorSchemeResources(R.color.primary);
+        swipeRefresh.setOnRefreshListener(this::loadSavedProperties);
+
         loadSavedProperties();
 
         return view;
@@ -99,6 +105,7 @@ public class SavedPropertiesFragment extends Fragment {
 
         if (!sharedPrefManager.isLoggedIn()) {
             updateUi();
+            if (swipeRefresh != null) swipeRefresh.setRefreshing(false);
             return;
         }
 
@@ -109,6 +116,7 @@ public class SavedPropertiesFragment extends Fragment {
             updateUi();
             adapter.submitList(new ArrayList<>());
             updateUi();
+            if (swipeRefresh != null) swipeRefresh.setRefreshing(false);
             return;
         }
 
@@ -128,6 +136,7 @@ public class SavedPropertiesFragment extends Fragment {
                         savedHouses.addAll(resultById.values());
                         adapter.submitList(savedHouses);
                         updateUi();
+                        if (swipeRefresh != null) swipeRefresh.setRefreshing(false);
                     }
                 }
 
@@ -138,6 +147,7 @@ public class SavedPropertiesFragment extends Fragment {
                         savedHouses.addAll(resultById.values());
                         adapter.submitList(savedHouses);
                         updateUi();
+                        if (swipeRefresh != null) swipeRefresh.setRefreshing(false);
                     }
                 }
             });

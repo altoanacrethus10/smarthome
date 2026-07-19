@@ -2,25 +2,26 @@
 
 **Current focus** (one short paragraph):
 
-Just finished a navigation restructure: replaced the 3-surface nav (hamburger
-drawer + bottom nav + kebab, with duplicated destinations) with a single
-bottom-nav-driven architecture. Tenant gets 5 tabs (Home/Houses/Saved/Bookings/Profile),
-Owner gets 4 (Home/Houses/Bookings/Profile, no Saved — owners can't favorite
-houses). Settings and Share App now live only behind the kebab menu (⋮),
-next to an always-visible notification bell. Drawer deleted outright.
-Delete Account flow removed.
+Completed Phase 1 of the 10-phase SmartHome improvement plan (foundation &
+UI consistency) — see progress.md for the full list. Previous session's
+navigation restructure (hamburger drawer + bottom nav + kebab → single
+bottom-nav architecture) is the foundation this built on. User explicitly
+chose "polish within MDC1" over an M3 theme migration for this phase.
 
 **In progress**:
 
-- [ ] Run an actual `./gradlew assembleDebug` — could not verify in this
-      session's environment (Gradle daemon failed with `java.io.IOException:
-      Unable to establish loopback connection`, tried --no-daemon, sandbox
-      override, and forcing IPv4 loopback; all failed the same way — looks
-      like a host/network restriction outside the repo, not a project
-      misconfig). Extensive static verification (id cross-checks, import
-      sweeps, caller-site greps) was done instead — see progress.md.
+- [ ] Run an actual `./gradlew assembleDebug` — still blocked in this
+      sandbox by the same `java.io.IOException: Unable to establish
+      loopback connection` restriction as last session (re-confirmed this
+      session). Static verification only (see progress.md) — needs a real
+      dev environment before trusting this as fully done.
 - [ ] Manual QA pass in Android Studio/emulator as both Owner and Tenant
-      accounts once the build succeeds.
+      accounts once the build succeeds — covers both this phase's changes
+      and the prior session's nav restructure.
+- [ ] Separate follow-up task spawned (not started): full `@dimen`
+      standardization sweep across all 46 layout files — deliberately not
+      done in this session, judged too risky without a working build to
+      visually verify.
 
 **Decisions (recent)**:
 

@@ -94,8 +94,8 @@ public class SettingsActivity extends AppCompatActivity {
         setupMenuItem(R.id.setting_privacy, R.drawable.ic_privacy, "Privacy Policy", v -> 
             startActivity(new Intent(this, PrivacyPolicyActivity.class)));
         
-        setupMenuItem(R.id.setting_terms, R.drawable.ic_check, "Terms of Service", v -> 
-            Toast.makeText(this, "Terms of Service coming soon", Toast.LENGTH_SHORT).show());
+        setupMenuItem(R.id.setting_terms, R.drawable.ic_check, "Terms of Service", v ->
+            startActivity(new Intent(this, TermsOfServiceActivity.class)));
         
         setupMenuItem(R.id.setting_about, R.drawable.ic_help, "About SmartHome", v -> 
             Toast.makeText(this, "SmartHome v1.0.0", Toast.LENGTH_SHORT).show());

@@ -2,6 +2,7 @@ package com.example.smarthome.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
@@ -198,7 +199,8 @@ public class BookingSummaryActivity extends AppCompatActivity {
 
                     @Override
                     public void onError(String error) {
-                        showSuccess(ref); // Still show success even if availability update fails locally
+                        Log.e("BookingSummary", "Failed to update house availability after booking: " + error);
+                        showSuccess(ref); // Booking itself succeeded; availability flag can be fixed by owner/next sync
                     }
                 });
 

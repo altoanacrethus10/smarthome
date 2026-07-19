@@ -196,7 +196,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_logout"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
+                style="@style/Widget.SmartHome.Button.TextButton"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:layout_marginTop="24dp"

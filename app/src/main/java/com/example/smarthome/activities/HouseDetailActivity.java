@@ -337,6 +337,7 @@ public class HouseDetailActivity extends AppCompatActivity implements android.co
             @Override
             public void onError(String error) {
                 Log.e("HouseDetail", "Error loading reviews: " + error);
+                Toast.makeText(HouseDetailActivity.this, "Couldn't load reviews", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -373,7 +374,10 @@ public class HouseDetailActivity extends AppCompatActivity implements android.co
             }
 
             @Override
-            public void onError(String error) {}
+            public void onError(String error) {
+                Log.e("HouseDetail", "Error loading owner info: " + error);
+                Toast.makeText(HouseDetailActivity.this, "Couldn't load owner details", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 
@@ -395,7 +399,9 @@ public class HouseDetailActivity extends AppCompatActivity implements android.co
                 }
 
                 @Override
-                public void onError(String error) {}
+                public void onError(String error) {
+                    Toast.makeText(HouseDetailActivity.this, "Failed to remove favorite. Please try again.", Toast.LENGTH_SHORT).show();
+                }
             });
         } else {
             houseRepository.addFavorite(userId, house.getId(), new HouseRepository.RepositoryCallback<Boolean>() {
@@ -407,7 +413,9 @@ public class HouseDetailActivity extends AppCompatActivity implements android.co
                 }
 
                 @Override
-                public void onError(String error) {}
+                public void onError(String error) {
+                    Toast.makeText(HouseDetailActivity.this, "Failed to save favorite. Please try again.", Toast.LENGTH_SHORT).show();
+                }
             });
         }
     }
